@@ -1,0 +1,106 @@
+{"_e":"root:init","_t":1792578213654,"format":"v0-jsonl","version":"57.0.31"}
+{"_e":"env:mode","_t":1792578213655,"nodeEnv":"development","babelEnv":"development","mode":"development"}
+{"_e":"env:load","_t":1792578213656,"mode":"development","files":[],"env":{}}
+{"_e":"devserver:start","_t":1792578213894,"mode":"development","web":true,"baseUrl":"","asyncRoutes":false,"routerRoot":"../../../src/app","serverComponents":false,"serverActions":false,"serverRendering":true,"apiRoutes":false,"exporting":false}
+{"_e":"metro:config","_t":1792578214082,"serverRoot":"../../..","projectRoot":"../../..","exporting":false,"flags":{"autolinkingModuleResolution":false,"serverActions":false,"serverComponents":false,"reactCompiler":true,"optimizeGraph":false,"treeshaking":false,"logbox":false}}
+{"_e":"expo:dev-tools-plugin:load","_t":1792578214218,"plugins":[]}
+{"_e":"metro:instantiate","_t":1792578214522,"atlas":false,"workers":7,"host":"::","port":8081}
+{"_e":"metro:bundling:started","_t":1792578221867,"id":"2","platform":"ios","environment":null,"entry":"node_modules/expo-router/entry.js"}
+{"_e":"metro:bundling:progress","_t":1792578221867,"id":"2","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1792578221869,"id":"2","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1792578221971,"id":"2","progress":0.040448175774788556,"total":179,"current":36}
+{"_e":"metro:bundling:progress","_t":1792578222069,"id":"2","progress":0.23297900143475087,"total":433,"current":209}
+{"_e":"metro:bundling:progress","_t":1792578222169,"id":"2","progress":0.3256088607998978,"total":708,"current":404}
+{"_e":"metro:bundling:progress","_t":1792578222269,"id":"2","progress":0.5600516895211244,"total":918,"current":687}
+{"_e":"metro:bundling:progress","_t":1792578222369,"id":"2","progress":0.8365772591844856,"total":1031,"current":943}
+{"_e":"metro:bundling:progress","_t":1792578222469,"id":"2","progress":0.9355278582021044,"total":1190,"current":1151}
+{"_e":"metro:bundling:progress","_t":1792578222570,"id":"2","progress":0.9802474000825078,"total":1209,"current":1197}
+{"_e":"metro:bundling:progress","_t":1792578222707,"id":"2","progress":0.981885924493785,"total":1209,"current":1198}
+{"_e":"metro:bundling:progress","_t":1792578222807,"id":"2","progress":0.9828061039655568,"total":1274,"current":1263}
+{"_e":"metro:bundling:progress","_t":1792578222937,"id":"2","progress":0.9859431658493922,"total":1276,"current":1267}
+{"_e":"metro:bundling:progress","_t":1792578223038,"id":"2","progress":0.9862544589774078,"total":1305,"current":1296}
+{"_e":"metro:bundling:progress","_t":1792578223139,"id":"2","progress":0.9923518445119712,"total":1305,"current":1300}
+{"_e":"metro:bundling:progress","_t":1792578223250,"id":"2","progress":0.993897802193313,"total":1309,"current":1305}
+{"_e":"metro:bundling:progress","_t":1792578223351,"id":"2","progress":0.998473865159373,"total":1310,"current":1309}
+{"_e":"metro:bundling:progress","_t":1792578223452,"id":"2","progress":0.999,"total":1314,"current":1314}
+{"_e":"metro:bundling:failed","_t":1792578223454,"id":"2","message":"Unable to resolve \"expo-sqlite/kv-store\" from \"src/lib/storage.ts\"\n> 1 | import Storage from 'expo-sqlite/kv-store';\n    |                      ^\n  2 |\n  3 | export async function load<T>(key: string, fallback: T): Promise<T> {\n  4 |   try {","importStack":"\u001b[1mImport stack:\u001b[22m\n\n\u001b[90m \u001b[39msrc/lib/storage.ts\n\u001b[90m |\u001b[39m \u001b[36mimport\u001b[39m \u001b[32m\"expo-sqlite/kv-store\"\u001b[39m\n\n\u001b[90m \u001b[39msrc/context/projects.tsx\n\u001b[90m |\u001b[39m \u001b[36mimport\u001b[39m \u001b[32m\"@/lib/storage\"\u001b[39m\n\n\u001b[90m \u001b[39msrc/components/project-card.tsx\n\u001b[90m |\u001b[39m \u001b[36mimport\u001b[39m \u001b[32m\"@/context/projects\"\u001b[39m\n\n\u001b[90m \u001b[39msrc/app/(tabs)/index.tsx\n\u001b[90m |\u001b[39m \u001b[36mimport\u001b[39m \u001b[32m\"@/components/project-card\"\u001b[39m\n\n\u001b[90m \u001b[39msrc/app\u001b[2m (require.context)\u001b[22m\n","filename":null,"targetModuleName":"expo-sqlite/kv-store","originModulePath":"src/lib/storage.ts"}
+{"_e":"root:init","_t":1792578258985,"format":"v0-jsonl","version":"57.0.31"}
+{"_e":"env:mode","_t":1792578258986,"nodeEnv":"development","babelEnv":"development","mode":"development"}
+{"_e":"env:load","_t":1792578258987,"mode":"development","files":[],"env":{}}
+{"_e":"devserver:start","_t":1792578259186,"mode":"development","web":true,"baseUrl":"","asyncRoutes":false,"routerRoot":"../../../src/app","serverComponents":false,"serverActions":false,"serverRendering":true,"apiRoutes":false,"exporting":false}
+{"_e":"metro:config","_t":1792578259381,"serverRoot":"../../..","projectRoot":"../../..","exporting":false,"flags":{"autolinkingModuleResolution":false,"serverActions":false,"serverComponents":false,"reactCompiler":true,"optimizeGraph":false,"treeshaking":false,"logbox":false}}
+{"_e":"expo:dev-tools-plugin:load","_t":1792578259520,"plugins":[{"packageName":"expo-sqlite","bannerTitle":"expo-sqlite","cliBanner":false,"webpageEndpoint":"/_expo/plugins/expo-sqlite"}]}
+{"_e":"metro:instantiate","_t":1792578259826,"atlas":false,"workers":7,"host":"::","port":8081}
+{"_e":"metro:bundling:started","_t":1792578262056,"id":"1","platform":"ios","environment":null,"entry":"node_modules/expo-router/entry.js"}
+{"_e":"metro:bundling:progress","_t":1792578262056,"id":"1","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1792578262059,"id":"1","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1792578262159,"id":"1","progress":0.12062103338233714,"total":334,"current":116}
+{"_e":"metro:bundling:progress","_t":1792578262259,"id":"1","progress":0.3231381094104308,"total":672,"current":382}
+{"_e":"metro:bundling:progress","_t":1792578262359,"id":"1","progress":0.545914252731617,"total":965,"current":713}
+{"_e":"metro:bundling:progress","_t":1792578262459,"id":"1","progress":0.8296076919956186,"total":1099,"current":1001}
+{"_e":"metro:bundling:progress","_t":1792578262559,"id":"1","progress":0.9984796657462157,"total":1315,"current":1314}
+{"_e":"metro:bundling:progress","_t":1792578262771,"id":"1","progress":0.999,"total":1315,"current":1315}
+{"_e":"metro:bundling:progress","_t":1792578262871,"id":"1","progress":0.999,"total":1319,"current":1317}
+{"_e":"metro:bundling:progress","_t":1792578263074,"id":"1","progress":0.999,"total":1319,"current":1318}
+{"_e":"metro:bundling:progress","_t":1792578263176,"id":"1","progress":0.999,"total":1326,"current":1323}
+{"_e":"metro:bundling:progress","_t":1792578263362,"id":"1","progress":0.999,"total":1326,"current":1324}
+{"_e":"metro:bundling:progress","_t":1792578263462,"id":"1","progress":0.999,"total":1332,"current":1331}
+{"_e":"metro:bundling:failed","_t":1792578263526,"id":"1","message":"Unable to resolve \"@expo-google-fonts/plus-jakarta-sans\" from \"src/app/_layout.tsx\"\n  2 |   PlusJakartaSans_400Regular, PlusJakartaSans_500Medium, PlusJakartaSans_600SemiBold,\n  3 |   PlusJakartaSans_700Bold, PlusJakartaSans_800ExtraBold,\n> 4 | } from '@expo-google-fonts/plus-jakarta-sans';\n    |         ^\n  5 | import { useFonts } from 'expo-font';\n  6 | import { DarkTheme, DefaultTheme, Stack, ThemeProvider } from 'expo-router';\n  7 | import * as SplashScreen from 'expo-splash-screen';","importStack":"\u001b[1mImport stack:\u001b[22m\n\n\u001b[90m \u001b[39msrc/app/_layout.tsx\n\u001b[90m |\u001b[39m \u001b[36mimport\u001b[39m \u001b[32m\"@expo-google-fonts/plus-jakarta-sans\"\u001b[39m\n\n\u001b[90m \u001b[39msrc/app\u001b[2m (require.context)\u001b[22m\n","filename":null,"targetModuleName":"@expo-google-fonts/plus-jakarta-sans","originModulePath":"src/app/_layout.tsx"}
+{"_e":"root:init","_t":1792578338977,"format":"v0-jsonl","version":"57.0.31"}
+{"_e":"env:mode","_t":1792578338978,"nodeEnv":"development","babelEnv":"development","mode":"development"}
+{"_e":"env:load","_t":1792578338979,"mode":"development","files":[],"env":{}}
+{"_e":"devserver:start","_t":1792578339184,"mode":"development","web":true,"baseUrl":"","asyncRoutes":false,"routerRoot":"../../../src/app","serverComponents":false,"serverActions":false,"serverRendering":true,"apiRoutes":false,"exporting":false}
+{"_e":"metro:config","_t":1792578339356,"serverRoot":"../../..","projectRoot":"../../..","exporting":false,"flags":{"autolinkingModuleResolution":false,"serverActions":false,"serverComponents":false,"reactCompiler":true,"optimizeGraph":false,"treeshaking":false,"logbox":false}}
+{"_e":"expo:dev-tools-plugin:load","_t":1792578339490,"plugins":[{"packageName":"expo-sqlite","bannerTitle":"expo-sqlite","cliBanner":false,"webpageEndpoint":"/_expo/plugins/expo-sqlite"}]}
+{"_e":"metro:instantiate","_t":1792578339822,"atlas":false,"workers":7,"host":"::","port":8081}
+{"_e":"metro:bundling:started","_t":1792578343396,"id":"2","platform":"ios","environment":null,"entry":"node_modules/expo-router/entry.js"}
+{"_e":"metro:bundling:progress","_t":1792578343397,"id":"2","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1792578343400,"id":"2","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1792578343500,"id":"2","progress":0.1525156682188999,"total":338,"current":132}
+{"_e":"metro:bundling:progress","_t":1792578343600,"id":"2","progress":0.31786843240673074,"total":674,"current":380}
+{"_e":"metro:bundling:progress","_t":1792578343700,"id":"2","progress":0.5058803377193575,"total":942,"current":670}
+{"_e":"metro:bundling:progress","_t":1792578343800,"id":"2","progress":0.7827268218703506,"total":1119,"current":990}
+{"_e":"metro:bundling:progress","_t":1792578343900,"id":"2","progress":0.9883721918588344,"total":1372,"current":1364}
+{"_e":"metro:bundling:failed","_t":1792578343903,"id":"2","message":"Unable to resolve \"@expo/vector-icons\" from \"src/components/ui.tsx\"\n> 1 | import { Ionicons } from '@expo/vector-icons';\n    |                           ^\n  2 | import { ReactNode } from 'react';\n  3 | import { Pressable, StyleProp, StyleSheet, TextInput, TextInputProps, View, ViewStyle } from 'react-native';\n  4 | import { SafeAreaView } from 'react-native-safe-area-context';","importStack":"\u001b[1mImport stack:\u001b[22m\n\n\u001b[90m \u001b[39msrc/components/ui.tsx\n\u001b[90m |\u001b[39m \u001b[36mimport\u001b[39m \u001b[32m\"@expo/vector-icons\"\u001b[39m\n\n\u001b[90m \u001b[39msrc/app/project/[id].tsx\n\u001b[90m |\u001b[39m \u001b[36mimport\u001b[39m \u001b[32m\"@/components/ui\"\u001b[39m\n\n\u001b[90m \u001b[39msrc/app\u001b[2m (require.context)\u001b[22m\n","filename":null,"targetModuleName":"@expo/vector-icons","originModulePath":"src/components/ui.tsx"}
+{"_e":"root:init","_t":1792578382705,"format":"v0-jsonl","version":"57.0.31"}
+{"_e":"env:mode","_t":1792578382706,"nodeEnv":"development","babelEnv":"development","mode":"development"}
+{"_e":"env:load","_t":1792578382707,"mode":"development","files":[],"env":{}}
+{"_e":"devserver:start","_t":1792578382940,"mode":"development","web":true,"baseUrl":"","asyncRoutes":false,"routerRoot":"../../../src/app","serverComponents":false,"serverActions":false,"serverRendering":true,"apiRoutes":false,"exporting":false}
+{"_e":"metro:config","_t":1792578383156,"serverRoot":"../../..","projectRoot":"../../..","exporting":false,"flags":{"autolinkingModuleResolution":false,"serverActions":false,"serverComponents":false,"reactCompiler":true,"optimizeGraph":false,"treeshaking":false,"logbox":false}}
+{"_e":"expo:dev-tools-plugin:load","_t":1792578383304,"plugins":[{"packageName":"expo-sqlite","bannerTitle":"expo-sqlite","cliBanner":false,"webpageEndpoint":"/_expo/plugins/expo-sqlite"}]}
+{"_e":"metro:instantiate","_t":1792578383608,"atlas":false,"workers":7,"host":"::","port":8081}
+{"_e":"metro:bundling:started","_t":1792578384598,"id":"1","platform":"ios","environment":null,"entry":"node_modules/expo-router/entry.js"}
+{"_e":"metro:bundling:progress","_t":1792578384598,"id":"1","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1792578384600,"id":"1","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1792578384700,"id":"1","progress":0.16761799307958478,"total":425,"current":174}
+{"_e":"metro:bundling:progress","_t":1792578384800,"id":"1","progress":0.360283074492702,"total":848,"current":509}
+{"_e":"metro:bundling:progress","_t":1792578384900,"id":"1","progress":0.7425478044087934,"total":1063,"current":916}
+{"_e":"metro:bundling:progress","_t":1792578385000,"id":"1","progress":0.883570693929672,"total":1283,"current":1206}
+{"_e":"metro:bundling:progress","_t":1792578385100,"id":"1","progress":0.999,"total":1442,"current":1442}
+{"_e":"metro:bundling:done","_t":1792578385424,"id":"1","total":1442,"ms":826.399875}
+{"_e":"metro:client_log","_t":1792578385727,"level":"warn","data":["No native ExponentConstants module found, are you sure the expo-constants's module is linked properly?"]}
+{"_e":"metro:client_log","_t":1792578385727,"level":"error","data":["[runtime not ready]: Error: Cannot find native module 'ExpoAsset'"]}
+{"_e":"metro:client_log","_t":1792578385727,"level":"error","data":["[runtime not ready]: Error: Cannot find native module 'ExpoAsset'"]}
+{"_e":"metro:client_log","_t":1792578385727,"level":"error","data":["[runtime not ready]: Invariant Violation: \"main\" has not been registered. This can happen if:\n* Metro (the local dev server) is run from the wrong folder. Check if Metro is running, stop it and restart it in the current project.\n* A module failed to load due to an error and `AppRegistry.registerComponent` wasn't called."]}
+{"_e":"root:init","_t":1792578426010,"format":"v0-jsonl","version":"57.0.31"}
+{"_e":"env:mode","_t":1792578426010,"nodeEnv":"development","babelEnv":"development","mode":"development"}
+{"_e":"env:load","_t":1792578426011,"mode":"development","files":[],"env":{}}
+{"_e":"devserver:start","_t":1792578426206,"mode":"development","web":true,"baseUrl":"","asyncRoutes":false,"routerRoot":"../../../src/app","serverComponents":false,"serverActions":false,"serverRendering":true,"apiRoutes":false,"exporting":false}
+{"_e":"metro:config","_t":1792578426404,"serverRoot":"../../..","projectRoot":"../../..","exporting":false,"flags":{"autolinkingModuleResolution":false,"serverActions":false,"serverComponents":false,"reactCompiler":true,"optimizeGraph":false,"treeshaking":false,"logbox":false}}
+{"_e":"expo:dev-tools-plugin:load","_t":1792578426550,"plugins":[{"packageName":"expo-sqlite","bannerTitle":"expo-sqlite","cliBanner":false,"webpageEndpoint":"/_expo/plugins/expo-sqlite"}]}
+{"_e":"metro:instantiate","_t":1792578426853,"atlas":false,"workers":7,"host":"::","port":8081}
+{"_e":"metro:bundling:started","_t":1792578428759,"id":"1","platform":"ios","environment":null,"entry":"node_modules/expo-router/entry.js"}
+{"_e":"metro:bundling:progress","_t":1792578428759,"id":"1","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1792578428761,"id":"1","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1792578428862,"id":"1","progress":0.17507617728531857,"total":380,"current":159}
+{"_e":"metro:bundling:progress","_t":1792578428963,"id":"1","progress":0.33471323086860144,"total":783,"current":453}
+{"_e":"metro:bundling:progress","_t":1792578429063,"id":"1","progress":0.6531770058501435,"total":1074,"current":868}
+{"_e":"metro:bundling:progress","_t":1792578429163,"id":"1","progress":0.901391391239837,"total":1285,"current":1220}
+{"_e":"metro:bundling:done","_t":1792578429261,"id":"1","total":1285,"ms":501.850708}
+{"_e":"metro:client_log","_t":1792578430412,"level":"error","data":["[TypeError: Cannot read property 'background' of undefined]","\n\n\u001b[1mCode: ui.tsx\u001b[22m\n\u001b[0m \u001b[90m 17 |\u001b[39m \u001b[36mexport\u001b[39m \u001b[36mfunction\u001b[39m \u001b[33mScreen\u001b[39m({ children }\u001b[33m:\u001b[39m { children\u001b[33m:\u001b[39m \u001b[33mReactNode\u001b[39m }) {\n \u001b[90m 18 |\u001b[39m   \u001b[36mconst\u001b[39m t \u001b[33m=\u001b[39m useTheme()\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 19 |\u001b[39m   \u001b[36mreturn\u001b[39m \u001b[33m<\u001b[39m\u001b[33mSafeAreaView\u001b[39m edges\u001b[33m=\u001b[39m{[\u001b[32m'top'\u001b[39m]} style\u001b[33m=\u001b[39m{{ flex\u001b[33m:\u001b[39m \u001b[35m1\u001b[39m\u001b[33m,\u001b[39m backgroundColor\u001b[33m:\u001b[39m t\u001b[33m.\u001b[39mbackground }}\u001b[33m>\u001b[39m{children}\u001b[33m<\u001b[39m\u001b[33m/\u001b[39m\u001b[33mSafeAreaView\u001b[39m\u001b[33m>\u001b[39m\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                      \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 20 |\u001b[39m }\n \u001b[90m 21 |\u001b[39m\n \u001b[90m 22 |\u001b[39m \u001b[36mexport\u001b[39m \u001b[36mfunction\u001b[39m \u001b[33mButton\u001b[39m({ label\u001b[33m,\u001b[39m onPress\u001b[33m,\u001b[39m icon\u001b[33m,\u001b[39m variant \u001b[33m=\u001b[39m \u001b[32m'primary'\u001b[39m\u001b[33m,\u001b[39m style\u001b[33m,\u001b[39m disabled }\u001b[33m:\u001b[39m {\u001b[0m\n\u001b[1mCall Stack\u001b[22m\n\u001b[90m  Screen (\u001b]8;;src/components/ui.tsx:19:38\u0007src/components/ui.tsx:19:38\u001b]8;;\u0007)\u001b[39m","\n\n\u001b[1mCode: index.tsx\u001b[22m\n\u001b[0m \u001b[90m 45 |\u001b[39m   )\u001b[33m;\u001b[39m\n \u001b[90m 46 |\u001b[39m   \u001b[36mreturn\u001b[39m (\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 47 |\u001b[39m     \u001b[33m<\u001b[39m\u001b[33mScreen\u001b[39m\u001b[33m>\u001b[39m\n \u001b[90m    |\u001b[39m     \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 48 |\u001b[39m       \u001b[33m<\u001b[39m\u001b[33mProjectGrid\u001b[39m data\u001b[33m=\u001b[39m{shown} header\u001b[33m=\u001b[39m{header}\n \u001b[90m 49 |\u001b[39m         empty\u001b[33m=\u001b[39m{\u001b[33m<\u001b[39m\u001b[33mEmptyState\u001b[39m icon\u001b[33m=\u001b[39m\u001b[32m\"folder-open-outline\"\u001b[39m title\u001b[33m=\u001b[39m\u001b[32m\"No projects found\"\u001b[39m message\u001b[33m=\u001b[39m\u001b[32m\"Add a project or change your search and category filter.\"\u001b[39m \u001b[35m/>} /\u001b[39m\u001b[33m>\u001b[39m\n \u001b[90m 50 |\u001b[39m     \u001b[33m<\u001b[39m\u001b[33m/\u001b[39m\u001b[33mScreen\u001b[39m\u001b[33m>\u001b[39m\u001b[0m\n\u001b[1mCall Stack\u001b[22m\n\u001b[90m  Home (\u001b]8;;src/app/(tabs)/index.tsx:47:5\u0007src/app/(tabs)/index.tsx:47:5\u001b]8;;\u0007)\u001b[39m\n\u001b[90m  TabsLayout (\u001b]8;;src/app/(tabs)/_layout.tsx:8:5\u0007src/app/(tabs)/_layout.tsx:8:5\u001b]8;;\u0007)\u001b[39m\n\u001b[90m  Navigator (\u001b]8;;src/app/_layout.tsx:26:7\u0007src/app/_layout.tsx:26:7\u001b]8;;\u0007)\u001b[39m\n\u001b[90m  RootLayout (\u001b]8;;src/app/_layout.tsx:45:9\u0007src/app/_layout.tsx:45:9\u001b]8;;\u0007)\u001b[39m"]}
+{"_e":"metro:bundling:failed","_t":1792578799964,"id":null,"message":"SyntaxError: /Users/admin/Downloads/portfolio-bank/src/hooks/use-theme.ts: Unexpected token (12:28)\n\n  10 |   return Colors[theme];\n  11 | }\n> 12 | https://kpadmin.netlify.app/\n     |                             ^","importStack":null,"filename":"src/hooks/use-theme.ts","targetModuleName":null,"originModulePath":null}
+{"_e":"metro:bundling:started","_t":1792578810174,"id":"8","platform":"ios","environment":null,"entry":"node_modules/expo-router/entry.js"}
+{"_e":"metro:bundling:progress","_t":1792578810175,"id":"8","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:done","_t":1792578810219,"id":"8","total":1,"ms":43.519125}
+{"_e":"metro:server_log","_t":1792578887427,"level":"error","data":["[timeout] connection terminated with Device for app='%s' on device='%s' after not responding for %s seconds.","com.veetech.kpglobal","sdk_gphone64_arm64 - 16 - API 36","60"]}
+{"_e":"metro:server_log","_t":1792579018723,"level":"error","data":["[timeout] connection terminated with Device for app='%s' on device='%s' after not responding for %s seconds.","com.veetech.kpglobal","sdk_gphone64_arm64 - 16 - API 36","60"]}
