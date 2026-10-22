@@ -7,8 +7,11 @@ import { DarkTheme, DefaultTheme, Stack, ThemeProvider } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
 import { StatusBar } from 'expo-status-bar';
 import { useEffect } from 'react';
-import { useColorScheme } from 'react-native';
+import { StyleSheet, useColorScheme, View } from 'react-native';
 
+import { Onboarding } from '@/components/onboarding';
+import { OnboardingProvider, useOnboarding } from '@/context/onboarding';
+import { PrefsProvider } from '@/context/preferences';
 import { ProjectsProvider } from '@/context/projects';
 import { ThemeModeProvider } from '@/context/theme-mode';
 import { Colors } from '@/constants/theme';
@@ -18,16 +21,26 @@ SplashScreen.preventAutoHideAsync();
 function Navigator() {
   const scheme = useColorScheme() === 'dark' ? 'dark' : 'light';
   const c = Colors[scheme];
+  const { seen } = useOnboarding();
   const base = scheme === 'dark' ? DarkTheme : DefaultTheme;
   const theme = { ...base, colors: { ...base.colors, background: c.background, card: c.background, text: c.text, border: c.border, primary: c.primary } };
   return (
     <ThemeProvider value={theme}>
       <StatusBar style="auto" />
-      <Stack screenOptions={{ headerShown: false }}>
-        <Stack.Screen name="(tabs)" />
-        <Stack.Screen name="project/[id]" />
-        <Stack.Screen name="project/form" options={{ presentation: 'modal' }} />
-      </Stack>
+      <View style={{ flex: 1, backgroundColor: c.background }}>
+        <Stack screenOptions={{ headerShown: false }}>
+          <Stack.Screen name="(tabs)" />
+          <Stack.Screen name="project/[id]" />
+          <Stack.Screen name="project/form" options={{ presentation: 'modal' }} />
+          <Stack.Screen name="settings" />
+        </Stack>
+        {/* Overlay: blank while loading the flag, onboarding slider on first launch. */}
+        {seen !== true && (
+          <View style={[StyleSheet.absoluteFill, { backgroundColor: c.background }]}>
+            {seen === false && <Onboarding />}
+          </View>
+        )}
+      </View>
     </ThemeProvider>
   );
 }
@@ -41,9 +54,13 @@ export default function RootLayout() {
   if (!loaded && !error) return null;
   return (
     <ThemeModeProvider>
-      <ProjectsProvider>
-        <Navigator />
-      </ProjectsProvider>
+      <PrefsProvider>
+        <OnboardingProvider>
+          <ProjectsProvider>
+            <Navigator />
+          </ProjectsProvider>
+        </OnboardingProvider>
+      </PrefsProvider>
     </ThemeModeProvider>
   );
 }

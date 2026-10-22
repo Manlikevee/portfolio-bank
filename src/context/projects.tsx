@@ -1,6 +1,7 @@
 import { createContext, ReactNode, useCallback, useContext, useEffect, useRef, useState } from 'react';
 
 import { checkUrl, Health } from '@/lib/health';
+import { usePrefs } from '@/context/preferences';
 import { load, save } from '@/lib/storage';
 import { Project, ProjectDraft, uid } from '@/lib/types';
 
@@ -52,6 +53,9 @@ export function ProjectsProvider({ children }: { children: ReactNode }) {
   const [checks, setChecks] = useState<Record<string, Check>>({});
   const ref = useRef(projects);
   ref.current = projects;
+  const { prefs } = usePrefs();
+  const timeoutRef = useRef(prefs.timeoutSec);
+  timeoutRef.current = prefs.timeoutSec;
 
   useEffect(() => {
     load<Project[] | null>('projects', null).then((p) => { setProjects(p ?? SEED); setReady(true); });
@@ -67,7 +71,7 @@ export function ProjectsProvider({ children }: { children: ReactNode }) {
     const run = async (key: 'website' | 'backend', url: string) => {
       if (!url) return;
       setChecks((c) => ({ ...c, [id]: { ...c[id], [key]: { state: 'checking', at: Date.now() } } }));
-      const result = await checkUrl(url);
+      const result = await checkUrl(url, timeoutRef.current * 1000);
       setChecks((c) => ({ ...c, [id]: { ...c[id], [key]: result } }));
     };
     await Promise.all([run('website', p.websiteUrl), run('backend', p.backendUrl)]);

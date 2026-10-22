@@ -1,17 +1,20 @@
 import { Image } from 'expo-image';
 import { router, useLocalSearchParams } from 'expo-router';
 import * as WebBrowser from 'expo-web-browser';
-import { useEffect } from 'react';
-import { Alert, Pressable, ScrollView, useWindowDimensions, View } from 'react-native';
+import { useEffect, useState } from 'react';
+import { Alert, Linking, Pressable, ScrollView, useWindowDimensions, View } from 'react-native';
 
+import { ImageViewer } from '@/components/image-viewer';
 import { LiveBadge } from '@/components/live-badge';
 import { Thumb } from '@/components/project-card';
 import { RichText } from '@/components/rich-text';
 import { ThemedText } from '@/components/themed-text';
 import { Button, EmptyState, Icon, IconButton, Screen, Section, StatusDot, Tag } from '@/components/ui';
 import { Radius, Spacing } from '@/constants/theme';
+import { usePrefs } from '@/context/preferences';
 import { useProjects } from '@/context/projects';
 import { normalizeUrl } from '@/lib/health';
+import { shareProject } from '@/lib/share';
 import { progress } from '@/lib/types';
 import { useTheme } from '@/hooks/use-theme';
 
@@ -20,8 +23,11 @@ export default function ProjectDetail() {
   const { get, checks, check, toggleActive, toggleFavourite, toggleFeature, remove } = useProjects();
   const { width } = useWindowDimensions();
   const t = useTheme();
+  const { prefs, loaded } = usePrefs();
+  const [viewerOpen, setViewerOpen] = useState(false);
+  const [imgIndex, setImgIndex] = useState(0);
   const p = get(id);
-  useEffect(() => { if (id) check(id); }, [id, check]);
+  useEffect(() => { if (id && loaded && prefs.autoCheck) check(id); }, [id, check, loaded]); // eslint-disable-line react-hooks/exhaustive-deps
 
   if (!p) {
     return (
@@ -34,12 +40,15 @@ export default function ProjectDetail() {
   const { done, total } = progress(p);
   const pending = p.features.filter((f) => !f.done);
   const completed = p.features.filter((f) => f.done);
-  const open = (url: string) => WebBrowser.openBrowserAsync(normalizeUrl(url));
-  const confirmDelete = () =>
+  const open = (url: string) =>
+    prefs.openLinks === 'browser' ? Linking.openURL(normalizeUrl(url)) : WebBrowser.openBrowserAsync(normalizeUrl(url));
+  const confirmDelete = () => {
+    if (!prefs.confirmDelete) { remove(p.id); router.back(); return; }
     Alert.alert('Delete project?', p.title, [
       { text: 'Cancel', style: 'cancel' },
       { text: 'Delete', style: 'destructive', onPress: () => { remove(p.id); router.back(); } },
     ]);
+  };
   const links: [string, string, 'globe-outline' | 'server-outline' | 'logo-github'][] = [
     ['Website', p.websiteUrl, 'globe-outline'], ['Backend', p.backendUrl, 'server-outline'], ['Repository', p.repoUrl, 'logo-github'],
   ];
@@ -55,18 +64,28 @@ export default function ProjectDetail() {
       <View style={{ flexDirection: 'row', justifyContent: 'space-between', padding: Spacing.three }}>
         <IconButton name="chevron-back" label="Back" onPress={() => router.back()} />
         <View style={{ flexDirection: 'row', gap: Spacing.two }}>
+          <IconButton name="share-outline" label="Share project" onPress={() => shareProject(p, imgIndex)} />
           <IconButton name={p.favourite ? 'heart' : 'heart-outline'} label="Favourite" color={p.favourite ? t.danger : undefined} onPress={() => toggleFavourite(p.id)} />
           <IconButton name="create-outline" label="Edit" onPress={() => router.push({ pathname: '/project/form', params: { id: p.id } })} />
         </View>
       </View>
       <ScrollView contentContainerStyle={{ paddingBottom: Spacing.six, gap: Spacing.four }}>
         {p.images.length > 0 ? (
-          <ScrollView horizontal pagingEnabled showsHorizontalScrollIndicator={false}>
-            {p.images.map((uri, i) => (
-              <Image key={i} source={{ uri }} contentFit="cover"
-                style={{ width: width - Spacing.three * 2, height: 220, borderRadius: Radius.lg, marginHorizontal: Spacing.three }} />
-            ))}
-          </ScrollView>
+          <View>
+            <ScrollView horizontal pagingEnabled showsHorizontalScrollIndicator={false}
+              onMomentumScrollEnd={(e) => setImgIndex(Math.round(e.nativeEvent.contentOffset.x / width))}>
+              {p.images.map((uri, i) => (
+                <Pressable key={i} onPress={() => { setImgIndex(i); setViewerOpen(true); }} accessibilityLabel="View full image"
+                  style={{ width: width - Spacing.three * 2, marginHorizontal: Spacing.three }}>
+                  <Image source={{ uri }} contentFit="cover" style={{ width: '100%', height: 220, borderRadius: Radius.lg }} />
+                </Pressable>
+              ))}
+            </ScrollView>
+            <View pointerEvents="none" style={{ position: 'absolute', right: Spacing.three + 10, bottom: 10, flexDirection: 'row', alignItems: 'center', gap: 6, backgroundColor: 'rgba(0,0,0,0.55)', borderRadius: 14, paddingHorizontal: 10, height: 28 }}>
+              <Icon name="expand-outline" size={14} color="#fff" />
+              <ThemedText type="caption" style={{ color: '#fff' }}>{p.images.length > 1 ? `${imgIndex + 1}/${p.images.length}` : 'Tap to expand'}</ThemedText>
+            </View>
+          </View>
         ) : <Thumb project={p} style={{ aspectRatio: 16 / 9, marginHorizontal: Spacing.three, borderRadius: Radius.lg }} />}
 
         <View style={{ paddingHorizontal: Spacing.three, gap: Spacing.four }}>
@@ -122,6 +141,7 @@ export default function ProjectDetail() {
           <Button label="Delete project" icon="trash-outline" variant="danger" onPress={confirmDelete} />
         </View>
       </ScrollView>
+      <ImageViewer images={p.images} startIndex={imgIndex} visible={viewerOpen} onClose={() => setViewerOpen(false)} />
     </Screen>
   );
 }

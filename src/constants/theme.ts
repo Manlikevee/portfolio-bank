@@ -1,7 +1,7 @@
 export const Colors = {
   light: {
     text: '#14151A', textSecondary: '#6B6F7B', background: '#FFFFFF', backgroundElement: '#F3F4F8',
-    backgroundSelected: '#E4E6EE', card: '#FFFFFF', border: '#E8E9EF', primary: '#5B4FE5',
+    backgroundSelected: '#E4E6EE', card: '#FFFFFF', border: '#E1E3EB', primary: '#5B4FE5',
     primaryText: '#FFFFFF', success: '#22A06B', danger: '#E5484D', warning: '#E0A100',
   },
   dark: {

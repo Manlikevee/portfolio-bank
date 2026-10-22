@@ -6,10 +6,12 @@ import { ProjectGrid } from '@/components/project-card';
 import { ThemedText } from '@/components/themed-text';
 import { Button, Chip, EmptyState, IconButton, Screen, SearchBar } from '@/components/ui';
 import { Radius, Spacing } from '@/constants/theme';
+import { usePrefs } from '@/context/preferences';
 import { useProjects } from '@/context/projects';
 
 export default function Home() {
   const { projects } = useProjects();
+  const { prefs } = usePrefs();
   const [q, setQ] = useState('');
   const [cat, setCat] = useState('All');
   const categories = useMemo(() => ['All', ...Array.from(new Set(projects.map((p) => p.category).filter(Boolean)))], [projects]);
@@ -18,8 +20,11 @@ export default function Home() {
     return projects
       .filter((p) => cat === 'All' || p.category === cat)
       .filter((p) => !needle || [p.title, p.category, p.summary, ...p.stack].join(' ').toLowerCase().includes(needle))
-      .sort((a, b) => b.updatedAt - a.updatedAt);
-  }, [projects, q, cat]);
+      .sort((a, b) =>
+        prefs.sort === 'title' ? a.title.localeCompare(b.title)
+          : prefs.sort === 'created' ? b.createdAt - a.createdAt
+          : b.updatedAt - a.updatedAt);
+  }, [projects, q, cat, prefs.sort]);
   const active = projects.filter((p) => p.active).length;
   const pending = projects.reduce((n, p) => n + p.features.filter((f) => !f.done).length, 0);
   const add = () => router.push('/project/form');

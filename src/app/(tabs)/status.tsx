@@ -8,12 +8,14 @@ import { ThemedText } from '@/components/themed-text';
 import { Button, EmptyState, IconButton, Screen, StatusDot } from '@/components/ui';
 import { BottomTabInset, Radius, Spacing } from '@/constants/theme';
 import { useProjects } from '@/context/projects';
+import { usePrefs } from '@/context/preferences';
 import { useTheme } from '@/hooks/use-theme';
 
 export default function Status() {
   const { projects, checks, check, checkAll, toggleActive, ready } = useProjects();
   const t = useTheme();
-  useEffect(() => { if (ready) checkAll(); }, [ready]); // eslint-disable-line react-hooks/exhaustive-deps
+  const { prefs, loaded } = usePrefs();
+  useEffect(() => { if (ready && loaded && prefs.autoCheck) checkAll(); }, [ready, loaded]); // eslint-disable-line react-hooks/exhaustive-deps
   return (
     <Screen>
       <FlatList data={projects} keyExtractor={(p) => p.id}
@@ -28,7 +30,7 @@ export default function Status() {
         ListEmptyComponent={<EmptyState icon="pulse-outline" title="Nothing to monitor" message="Add a project with a website or backend URL." />}
         renderItem={({ item: p }) => (
           <Pressable onPress={() => router.push({ pathname: '/project/[id]', params: { id: p.id } })}
-            style={{ backgroundColor: t.card, borderWidth: 1, borderColor: t.border, borderRadius: Radius.lg, padding: Spacing.three, gap: Spacing.two }}>
+            style={{ backgroundColor: t.backgroundElement, borderWidth: 1, borderColor: t.border, borderRadius: Radius.lg, padding: Spacing.three, gap: Spacing.two }}>
             <View style={{ flexDirection: 'row', alignItems: 'center', gap: Spacing.three }}>
               <Thumb project={p} style={{ width: 52, borderRadius: Radius.sm }} />
               <View style={{ flex: 1 }}>
